@@ -6,7 +6,7 @@ const generateHash = async (round, pass) => {
 };
 
 const decodeHash = async (userpass, dbpass) => {
-  return await bcrypt.compare(dbpass, userpass);
+  return await bcrypt.compare(userpass, dbpass);
 };
 
 module.exports = {

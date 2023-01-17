@@ -7,9 +7,8 @@ const userRouter = require("./routes/user.js");
 createMongooseConnection();
 app.use(express.json());
 
+app.use("/api/pin", pinRouter);
+app.use("/api/user", userRouter);
 app.listen(8080, () => {
   console.log("[SUCCEES] Backend server started!");
 });
-
-app.use("/api/pin", pinRouter);
-app.use("/api/user", userRouter);
