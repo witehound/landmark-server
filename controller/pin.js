@@ -21,8 +21,9 @@ const getAllPins = async (req, res) => {
 };
 
 const deletePin = async (req, res) => {
+  const id = req.params.id;
   try {
-    await pin.findByIdAndDelete();
+    await pin.findByIdAndDelete(id);
     res.status(200).json({ message: "deleted pin" });
   } catch (err) {
     res.status(500).json(err._message);
