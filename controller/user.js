@@ -25,12 +25,10 @@ const loginUser = async (req, res) => {
     const user = await User.findOne({
       userName: req.body.userName,
     });
-    console.log(user);
     if (!user) {
       res.status(400).json({ message: "wrong password or username" });
     }
     const validPassword = await decodeHash(req.body.password, user.password);
-    console.log(validPassword);
     if (!validPassword) {
       res.status(400).json({ message: "wrong password or username" });
     }
