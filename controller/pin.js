@@ -20,7 +20,17 @@ const getAllPins = async (req, res) => {
   }
 };
 
+const deletePin = async (req, res) => {
+  try {
+    await pin.findByIdAndDelete();
+    res.status(200).json({ message: "deleted pin" });
+  } catch (err) {
+    res.status(500).json(err._message);
+  }
+};
+
 module.exports = {
   createNewPin,
   getAllPins,
+  deletePin,
 };
